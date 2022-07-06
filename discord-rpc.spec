@@ -1,7 +1,7 @@
 Name:           discord-rpc
 Version:        3.4.0
 %define shver	3_4_0
-Release:        0
+Release:        1
 Summary:        Discord rich presence library
 License:        MIT
 Group:          Development/Libraries/C and C++
@@ -9,8 +9,7 @@ URL:            https://github.com/discordapp/discord-rpc
 Source:         https://github.com/discordapp/%{name}/archive/v%{version}.tar.gz
 Patch1:         0001-Add-some-library-versioning.patch
 BuildRequires:  cmake
-BuildRequires:  gcc-c++
-BuildRequires:  rapidjson-devel
+#BuildRequires:  rapidjson-devel
 
 %description
 This is a library for interfacing your game with a locally running Discord
@@ -39,10 +38,10 @@ perl -i -lpe 's{\@PACKAGE_VERSION\@}{%version}g' src/CMakeLists.txt
 %build
 %cmake
 
-%cmake_build
+%make_build
 
 %install
-%cmake_install
+%make_install -C build
 
 %files devel
 %license LICENSE
