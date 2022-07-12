@@ -50,4 +50,4 @@ perl -i -lpe 's{\@PACKAGE_VERSION\@}{%version}g' src/CMakeLists.txt
 %{_libdir}/libdiscord-rpc.so
 
 %files -n libdiscord-rpc%{shver}
-%{_libdir}/libdiscord-rpc.so.%{version}
+#{_libdir}/libdiscord-rpc.so.%{version}
