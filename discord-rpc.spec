@@ -6,10 +6,9 @@ Summary:        Discord rich presence library
 License:        MIT
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/discordapp/discord-rpc
-Source:         https://github.com/discordapp/%{name}/archive/v%{version}.tar.gz
-Patch1:         0001-Add-some-library-versioning.patch
+Source:         https://github.com/discordapp/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  cmake
-#BuildRequires:  rapidjson-devel
+BuildRequires:  rapidjson
 
 %description
 This is a library for interfacing your game with a locally running Discord
