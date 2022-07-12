@@ -7,6 +7,7 @@ License:        MIT
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/discordapp/discord-rpc
 Source:         https://github.com/discordapp/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0:         0001-Add-some-library-versioning.patch
 BuildRequires:  cmake
 BuildRequires:  rapidjson
 
@@ -50,4 +51,4 @@ perl -i -lpe 's{\@PACKAGE_VERSION\@}{%version}g' src/CMakeLists.txt
 %{_libdir}/libdiscord-rpc.so
 
 %files -n libdiscord-rpc%{shver}
-#{_libdir}/libdiscord-rpc.so.%{version}
+%{_libdir}/libdiscord-rpc.so.%{version}
