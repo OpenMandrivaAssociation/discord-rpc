@@ -1,3 +1,7 @@
+%define api 0
+%define libname %mklibname discord-rpc %{api}
+%define devname %mklibname discord-rpc -d
+
 Name:           discord-rpc
 Version:        3.4.0
 %define shver	3_4_0
@@ -15,20 +19,22 @@ BuildRequires:  rapidjson
 This is a library for interfacing your game with a locally running Discord
 desktop client.
 
-%package -n libdiscord-rpc%{shver}
+%package -n %{libname}
 Summary:        Discord RPC library
 Group:          System/Libraries
 Recommends:     discord
+Provides:       discord-rpc
 
-%description -n libdiscord-rpc%{shver}
+%description -n %{libname}
 This is a library for interfacing your game with a locally running Discord
 desktop client.
 
-%package devel
+%package -n %{devname}
 Summary:        Development files for libdiscord-rpc
-Requires:       libdiscord-rpc%{shver} = %{version}-%{release}
+Requires:	%{libname} = %{version}-%{release}
+Provides: discord-rpc-devel
 
-%description devel
+%description -n	%{devname}
 Header files for the discord-rpc library.
 
 %prep
@@ -43,12 +49,12 @@ perl -i -lpe 's{\@PACKAGE_VERSION\@}{%version}g' src/CMakeLists.txt
 %install
 %make_install -C build
 
-%files devel
+%files -n %{devname}
 %license LICENSE
 %doc README.md
 %{_includedir}/discord_register.h
 %{_includedir}/discord_rpc.h
 %{_libdir}/libdiscord-rpc.so
 
-%files -n libdiscord-rpc%{shver}
+%files -n %{libname}
 %{_libdir}/libdiscord-rpc.so.%{version}
