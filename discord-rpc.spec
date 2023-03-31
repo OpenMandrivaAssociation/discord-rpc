@@ -5,7 +5,7 @@
 Name:           discord-rpc
 Version:        3.4.0
 %define shver	3_4_0
-Release:        1
+Release:        2
 Summary:        Discord rich presence library
 License:        MIT
 Group:          Development/Libraries/C and C++
